@@ -18,6 +18,7 @@
     :root{
       --bg:#0b0b0d; --panel:#121216; --ink:#f5f6f8; --muted:#b8bcc6; --brand:#d33; --line:#1e1e24; --ok:#1fbf75;
       --max:1120px; --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bold:#fca311; --prep:#0ea5e9; --reader:#a855f7;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial}
@@ -31,7 +32,12 @@
     h1{font-size:clamp(32px,5vw,52px);line-height:1.05;margin:.35em 0 .2em}
     .lead{font-size:clamp(16px,2.3vw,20px);color:var(--muted);margin:0 auto 1.25rem;max-width:720px}
     .cta{display:inline-flex;gap:12px;align-items:center;background:var(--brand);color:#fff;padding:14px 20px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
-    .cta:hover{filter:brightness(1.05)}
+    .cta:hover{filter:brightness(1.1);transform:translateY(-1px)}
+    .cta--sec{background:transparent;border:1px solid var(--line);color:var(--ink);box-shadow:none}
+    .cta--sec:hover{background:var(--line);border-color:var(--muted)}
+    .cta--bold{background:var(--bold);color:#000}
+    .cta--prep{background:var(--prep);color:#fff}
+    .cta--reader{background:var(--reader);color:#fff}
     .sec{padding:56px 0;border-top:1px solid var(--line)}
     h2{font-size:clamp(22px,3vw,34px);margin:0 0 18px}
     .grid{display:grid;gap:20px}
@@ -96,7 +102,7 @@
       </div>
       <div class="cta-row">
         <a class="cta" href="https://buy.stripe.com/cNifZh8CbaPR6Et0tQ2wU3N">Book a Strategy Session</a>
-        <a class="cta" style="background:#2b2b30" href="#programs">See Programs</a>
+        <a class="cta cta--sec" href="#programs">See Programs</a>
       </div>
     </div>
   </header>
@@ -146,7 +152,7 @@
           </div>
           <div class="cta-group">
             <a class="cta cta-small" href="https://buy.stripe.com/6oUeVdaKjgab7Ix5Oa2wU3O">30 min — $59</a>
-            <a class="cta cta-small" href="https://buy.stripe.com/cNifZh8CbaPR6Et0tQ2wU3N">60 min — $85</a>
+            <a class="cta cta-small cta--sec" href="https://buy.stripe.com/cNifZh8CbaPR6Et0tQ2wU3N">60 min — $85</a>
           </div>
         </article>
         <!-- Breakthrough Pack -->
@@ -171,7 +177,7 @@
           </div>
           <div class="cta-group">
             <a class="cta cta-small" href="https://buy.stripe.com/cNi28r3hR6zB4wlgsO2wU3L">Weekly — $300/mo</a>
-            <a class="cta cta-small" href="https://buy.stripe.com/14A6oH19J9LNd2Rb8u2wU3K">Bi-weekly — $165/mo</a>
+            <a class="cta cta-small cta--sec" href="https://buy.stripe.com/14A6oH19J9LNd2Rb8u2wU3K">Bi-weekly — $165/mo</a>
           </div>
         </article>
         <!-- Audition Advantage -->
@@ -265,8 +271,8 @@
         <h3>Want Prep101 Without Coaching?</h3>
         <p>Not ready for a full coaching session but need audition support? You can purchase a standalone Prep101 Guide.</p>
         <div class="cta-group">
-          <a class="cta cta-small" href="https://prep101.site" target="_blank" rel="noopener">Purchase a Prep101 Guide</a>
-          <a class="cta cta-small" href="https://prep101.site/examples" target="_blank" rel="noopener">View Example Guides</a>
+          <a class="cta cta-small cta--prep" href="https://prep101.site" target="_blank" rel="noopener">Purchase a Prep101 Guide</a>
+          <a class="cta cta-small cta--sec" href="https://prep101.site/examples" target="_blank" rel="noopener">View Example Guides</a>
         </div>
      <div class="teaser">
     <a href="https://claude.ai/public/artifacts/80df743c-904d-4325-bb04-8bfc85a92bbf" target="_blank">
@@ -322,7 +328,7 @@
             <span class="pill">Creative spark</span>
           </div>
           <div class="cta-group">
-            <a class="cta cta-small" href="https://boldchoices.site" target="_blank">Try Bold Choices</a>
+            <a class="cta cta-small cta--bold" href="https://boldchoices.site" target="_blank">Try Bold Choices</a>
           </div>
         </div>
 
@@ -337,7 +343,7 @@
             <span class="pill">Rehearsal plan</span>
           </div>
           <div class="cta-group">
-            <a class="cta cta-small" href="https://prep101.site" target="_blank">Explore Prep101</a>
+            <a class="cta cta-small cta--prep" href="https://prep101.site" target="_blank">Explore Prep101</a>
           </div>
         </div>
 
@@ -352,7 +358,7 @@
             <span class="pill">Better tapes</span>
           </div>
           <div class="cta-group">
-            <a class="cta cta-small" href="https://reader101.site" target="_blank">Use Reader101</a>
+            <a class="cta cta-small cta--reader" href="https://reader101.site" target="_blank">Use Reader101</a>
           </div>
         </div>
 
