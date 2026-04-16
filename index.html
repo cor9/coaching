@@ -33,9 +33,9 @@
     .lead{font-size:clamp(16px,2.3vw,20px);color:var(--muted);margin:0 auto 1.25rem;max-width:720px}
     .cta{display:inline-flex;gap:12px;align-items:center;background:var(--brand);color:#fff;padding:14px 20px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
     .cta:hover{filter:brightness(1.1);transform:translateY(-1px)}
-    .cta--sec{background:transparent;border:1px solid var(--line);color:var(--ink);box-shadow:none}
-    .cta--sec:hover{background:var(--line);border-color:var(--muted)}
-    .cta--subtle{background:transparent;border:1px solid var(--line);color:var(--muted);box-shadow:none}
+    .cta--sec{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);color:var(--ink);box-shadow:none}
+    .cta--sec:hover{background:rgba(255,255,255,0.1);border-color:var(--muted)}
+    .cta--subtle{background:rgba(255,255,255,0.03);border:1px solid var(--line);color:var(--muted);box-shadow:none}
     .cta--subtle:hover{background:var(--line);color:var(--ink)}
     .sec{padding:56px 0;border-top:1px solid var(--line)}
     h2{font-size:clamp(22px,3vw,34px);margin:0 0 18px}
@@ -285,7 +285,9 @@
 
         <!-- Bold Choices -->
         <div class="card" style="text-align:center">
-          <img src="bold-choices-logo.png" alt="Bold Choices" style="height:60px; margin-bottom:14px;">
+          <div style="background:#fff; width:100px; height:100px; border-radius:50%; display:grid; place-items:center; margin:0 auto 16px; padding:15px; box-shadow: 0 4px 15px rgba(0,0,0,0.4)">
+            <img src="bold-choices-logo.png" alt="Bold Choices" style="width:100%; height:auto; object-fit:contain">
+          </div>
           <h3>Start with direction</h3>
           <p class="muted">Get unstuck instantly with bold, specific choices.</p>
           <a href="https://boldchoices.site" target="_blank" class="cta cta--sec cta-small">Try it</a>
@@ -293,7 +295,9 @@
 
         <!-- Prep101 -->
         <div class="card" style="text-align:center">
-          <img src="preplogo.png" alt="Prep101" style="height:60px; margin-bottom:14px;">
+          <div style="background:#fff; width:100px; height:100px; border-radius:50%; display:grid; place-items:center; margin:0 auto 16px; padding:15px; box-shadow: 0 4px 15px rgba(0,0,0,0.4)">
+            <img src="preplogo.png" alt="Prep101" style="width:100%; height:auto; object-fit:contain">
+          </div>
           <h3>Build the performance</h3>
           <p class="muted">Break down the scene, beats, and character so choices actually land.</p>
           <a href="https://prep101.site" target="_blank" class="cta cta--sec cta-small">See how it works</a>
@@ -301,7 +305,9 @@
 
         <!-- Reader101 -->
         <div class="card" style="text-align:center">
-          <img src="reader101-logo.png" alt="Reader101" style="height:60px; margin-bottom:14px;">
+          <div style="background:#fff; width:100px; height:100px; border-radius:50%; display:grid; place-items:center; margin:0 auto 16px; padding:15px; box-shadow: 0 4px 15px rgba(0,0,0,0.4)">
+            <img src="reader101-logo.png" alt="Reader101" style="width:100%; height:auto; object-fit:contain">
+          </div>
           <h3>Fix the tape</h3>
           <p class="muted">Eliminate bad reads, pacing issues, and energy problems.</p>
           <a href="https://reader101.site" target="_blank" class="cta cta--sec cta-small">Improve your tape</a>
