@@ -247,7 +247,36 @@
         border-radius: 8px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     }
-    
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.2);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, transform 0.3s;
+        backdrop-filter: blur(4px);
+    }
+    .carousel-arrow:hover {
+        background: rgba(0,0,0,0.9);
+        transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-arrow.left { left: 20px; }
+    .carousel-arrow.right { right: 20px; }
+    @media (max-width: 768px) {
+        .carousel-arrow { width: 36px; height: 36px; font-size: 16px; }
+        .carousel-arrow.left { left: 10px; }
+        .carousel-arrow.right { right: 10px; }
+    }
     </style>
   <section class="alumni-section">
       <div class="alumni-header">
@@ -255,6 +284,8 @@
           <p>Some of the young actors Corey has trained through private coaching and online programs like The Craft.</p>
       </div>
       <div class="carousel-container">
+          <button class="carousel-arrow left" aria-label="Scroll left">&#10094;</button>
+          <button class="carousel-arrow right" aria-label="Scroll right">&#10095;</button>
           <div class="carousel-fade-left"></div>
           <div class="carousel-fade-right"></div>
           <div class="carousel-track" id="alumni-carousel">
@@ -269,6 +300,8 @@
               <div class="carousel-card"><a href="#"><img src="alumni/hudson.jpg" loading="lazy" alt="Alumni Actor"></a></div>
               <div class="carousel-card"><a href="#"><img src="alumni/jjwhyte.jpg" loading="lazy" alt="Alumni Actor"></a></div>
               <div class="carousel-card"><a href="#"><img src="alumni/juliette.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/krista.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/lexi.jpg" loading="lazy" alt="Alumni Actor"></a></div>
               <div class="carousel-card"><a href="#"><img src="alumni/luke.jpg" loading="lazy" alt="Alumni Actor"></a></div>
               <div class="carousel-card"><a href="#"><img src="alumni/nora.jpg" loading="lazy" alt="Alumni Actor"></a></div>
               <div class="carousel-card"><a href="#"><img src="alumni/samibray.jpg" loading="lazy" alt="Alumni Actor"></a></div>
@@ -361,6 +394,20 @@
           const walk = (x - startX) * 2;
           track.scrollLeft = scrollLeft - walk;
       });
+
+      // Manual arrows
+      const leftArrow = track.parentElement.querySelector('.carousel-arrow.left');
+      const rightArrow = track.parentElement.querySelector('.carousel-arrow.right');
+      if(leftArrow && rightArrow) {
+          leftArrow.addEventListener('click', () => {
+              stopAutoScroll();
+              track.scrollBy({ left: -300, behavior: 'smooth' });
+          });
+          rightArrow.addEventListener('click', () => {
+              stopAutoScroll();
+              track.scrollBy({ left: 300, behavior: 'smooth' });
+          });
+      }
   });
   </script>
 
