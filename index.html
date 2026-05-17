@@ -116,19 +116,7 @@
     </div>
   </header>
 
-  <!-- TESTIMONIALS -->
-  <section class="sec">
-    <div class="wrap" style="text-align:center">
-      <h2>Parent Results</h2>
-      <div class="grid grid--3">
-        <blockquote class="card">"Corey helped Grayson with an audition and absolutely got the best out of him. He even went above and beyond by staying on the call to be the reader while we taped the audition." <br><span class="muted">— Parent Sylvia Lawrence</span></blockquote>
-        <blockquote class="card">"He pushes her to step outside of her comfort zone, but when she isn't ready to face the emotions - he has the patience of a saint..." <br><span class="muted">— Parent Rebecca Beam</span></blockquote>
-         <blockquote class="card">"We love Corey's teaching style. He pushes and challenges Jonathan to think outside of the box in a positive and nurturing way." <br><span class="muted">— Parent Betsy Chacko</span></blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- Actors Corey Has Trained Section -->
+<!-- Actors Corey Has Trained Section -->
   <style>
   .alumni-section {
       padding: 6rem 0;
@@ -192,26 +180,25 @@
       display: none;
   }
   .carousel-card {
-      flex: 0 0 auto;
-      width: clamp(200px, 20vw, 280px);
-      aspect-ratio: 4/5;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      background: #111;
-  }
+        flex: 0 0 auto;
+        height: clamp(240px, 35vw, 360px);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        background: #111;
+    }
   .carousel-card:hover {
       transform: scale(1.03) translateY(-5px);
       box-shadow: 0 15px 40px rgba(0,0,0,0.5);
   }
   .carousel-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-  }
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        pointer-events: none;
+    }
   .carousel-card a {
       display: block;
       width: 100%;
@@ -224,17 +211,48 @@
           gap: 1rem;
       }
       .carousel-card {
-          width: clamp(160px, 45vw, 240px);
-      }
+        flex: 0 0 auto;
+        height: clamp(240px, 35vw, 360px);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        background: #111;
+    }
       .carousel-fade-left, .carousel-fade-right {
           width: 40px;
       }
   }
-  </style>
+  
+    .alumni-lightbox {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .alumni-lightbox.active {
+        display: flex;
+        opacity: 1;
+    }
+    .alumni-lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    
+    </style>
   <section class="alumni-section">
       <div class="alumni-header">
           <h2>Actors Corey Has Trained</h2>
-          <p>Just a few of the young actors Corey has coached and trained over the years.</p>
+          <p>Some of the young actors Corey has trained through private coaching and online programs like The Craft.</p>
       </div>
       <div class="carousel-container">
           <div class="carousel-fade-left"></div>
@@ -261,7 +279,12 @@
           </div>
       </div>
   </section>
-  <script>
+  
+    <div class="alumni-lightbox" id="alumni-lightbox">
+        <img src="" id="alumni-lightbox-img" alt="Alumni Actor Full">
+    </div>
+    
+    <script>
   document.addEventListener("DOMContentLoaded", function() {
       const track = document.getElementById('alumni-carousel');
       if (!track) return;
@@ -282,7 +305,7 @@
               if (track.scrollLeft >= (track.scrollWidth / 2)) {
                   track.scrollLeft = 0;
               }
-          }, 25);
+          }, 45);
       }
 
       function stopAutoScroll() {
@@ -298,7 +321,25 @@
       track.addEventListener('touchstart', stopAutoScroll, {passive: true});
       track.addEventListener('touchend', startAutoScroll);
 
-      // Manual drag
+      
+        // Lightbox functionality
+        const lightbox = document.getElementById('alumni-lightbox');
+        const lightboxImg = document.getElementById('alumni-lightbox-img');
+        
+        document.querySelectorAll('.carousel-card a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = link.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    
+        // Manual drag
       track.addEventListener('mousedown', (e) => {
           isDown = true;
           stopAutoScroll();
@@ -323,6 +364,20 @@
   });
   </script>
 
+
+  <!-- TESTIMONIALS -->
+  <section class="sec">
+    <div class="wrap" style="text-align:center">
+      <h2>Parent Results</h2>
+      <div class="grid grid--3">
+        <blockquote class="card">"Corey helped Grayson with an audition and absolutely got the best out of him. He even went above and beyond by staying on the call to be the reader while we taped the audition." <br><span class="muted">— Parent Sylvia Lawrence</span></blockquote>
+        <blockquote class="card">"He pushes her to step outside of her comfort zone, but when she isn't ready to face the emotions - he has the patience of a saint..." <br><span class="muted">— Parent Rebecca Beam</span></blockquote>
+         <blockquote class="card">"We love Corey's teaching style. He pushes and challenges Jonathan to think outside of the box in a positive and nurturing way." <br><span class="muted">— Parent Betsy Chacko</span></blockquote>
+      </div>
+    </div>
+  </section>
+
+  
   <!-- WHY COACHING -->
   <section class="sec">
     <div class="wrap grid grid--2">
