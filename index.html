@@ -128,6 +128,201 @@
     </div>
   </section>
 
+  <!-- Actors Corey Has Trained Section -->
+  <style>
+  .alumni-section {
+      padding: 6rem 0;
+      overflow: hidden;
+      background: var(--bg-dark, var(--bg, #0a0a0c));
+      border-top: 1px solid var(--border-color, var(--line, rgba(255, 255, 255, 0.1)));
+      border-bottom: 1px solid var(--border-color, var(--line, rgba(255, 255, 255, 0.1)));
+  }
+  .alumni-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 0 2rem;
+  }
+  .alumni-header h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: #fff;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading, inherit);
+      line-height: 1.2;
+  }
+  .alumni-header p {
+      color: var(--text-muted, var(--muted, #a0a0a5));
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+  }
+  .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      max-width: 1800px;
+      margin: 0 auto;
+  }
+  .carousel-fade-left, .carousel-fade-right {
+      position: absolute;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+  }
+  .carousel-fade-left {
+      left: 0;
+      background: linear-gradient(to right, var(--bg-dark, var(--bg, #0a0a0c)), transparent);
+  }
+  .carousel-fade-right {
+      right: 0;
+      background: linear-gradient(to left, var(--bg-dark, var(--bg, #0a0a0c)), transparent);
+  }
+  .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem 4rem;
+      overflow-x: auto;
+      scroll-behavior: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+  }
+  .carousel-track::-webkit-scrollbar {
+      display: none;
+  }
+  .carousel-card {
+      flex: 0 0 auto;
+      width: clamp(200px, 20vw, 280px);
+      aspect-ratio: 4/5;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      background: #111;
+  }
+  .carousel-card:hover {
+      transform: scale(1.03) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  }
+  .carousel-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+  }
+  .carousel-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+  }
+  @media (max-width: 768px) {
+      .alumni-section { padding: 4rem 0; }
+      .carousel-track {
+          padding: 1rem 2rem;
+          gap: 1rem;
+      }
+      .carousel-card {
+          width: clamp(160px, 45vw, 240px);
+      }
+      .carousel-fade-left, .carousel-fade-right {
+          width: 40px;
+      }
+  }
+  </style>
+  <section class="alumni-section">
+      <div class="alumni-header">
+          <h2>Actors Corey Has Trained</h2>
+          <p>Just a few of the young actors Corey has coached and trained over the years.</p>
+      </div>
+      <div class="carousel-container">
+          <div class="carousel-fade-left"></div>
+          <div class="carousel-fade-right"></div>
+          <div class="carousel-track" id="alumni-carousel">
+              <div class="carousel-card"><a href="#"><img src="alumni/aiden.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/anna.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/bugarnarson.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/carson.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/charliehitt.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/davis.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/ella.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/elladorsch.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/hudson.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/jjwhyte.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/juliette.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/luke.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/nora.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/samibray.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/sofia.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/sophie.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/vox.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+              <div class="carousel-card"><a href="#"><img src="alumni/zelia.jpg" loading="lazy" alt="Alumni Actor"></a></div>
+          </div>
+      </div>
+  </section>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const track = document.getElementById('alumni-carousel');
+      if (!track) return;
+      
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      let autoScrollTimer;
+      
+      // Duplicate content for infinite scroll illusion
+      track.innerHTML += track.innerHTML;
+
+      function startAutoScroll() {
+          if(autoScrollTimer) clearInterval(autoScrollTimer);
+          autoScrollTimer = setInterval(() => {
+              track.scrollLeft += 1;
+              // Once we scroll past the first set of items, reset back to 0 seamlessly
+              if (track.scrollLeft >= (track.scrollWidth / 2)) {
+                  track.scrollLeft = 0;
+              }
+          }, 25);
+      }
+
+      function stopAutoScroll() {
+          clearInterval(autoScrollTimer);
+      }
+
+      startAutoScroll();
+
+      track.addEventListener('mouseenter', stopAutoScroll);
+      track.addEventListener('mouseleave', () => {
+          if(!isDown) startAutoScroll();
+      });
+      track.addEventListener('touchstart', stopAutoScroll, {passive: true});
+      track.addEventListener('touchend', startAutoScroll);
+
+      // Manual drag
+      track.addEventListener('mousedown', (e) => {
+          isDown = true;
+          stopAutoScroll();
+          track.style.cursor = 'grabbing';
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+      });
+      window.addEventListener('mouseup', () => {
+          if(isDown) {
+              isDown = false;
+              track.style.cursor = 'grab';
+              startAutoScroll();
+          }
+      });
+      track.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 2;
+          track.scrollLeft = scrollLeft - walk;
+      });
+  });
+  </script>
+
   <!-- WHY COACHING -->
   <section class="sec">
     <div class="wrap grid grid--2">
